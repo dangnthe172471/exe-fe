@@ -14,7 +14,7 @@ export default function RootLayout({
   return (
     <html lang="vi">
       <head>
-        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="515*485" />
       </head>
       <body suppressHydrationWarning={true}>
         {children}
