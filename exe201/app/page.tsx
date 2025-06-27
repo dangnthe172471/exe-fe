@@ -440,6 +440,8 @@ export default function HomePage() {
       </section>
 
       <Footer />
+
+      <script src="https://subbot.io.vn/widget.js" api-key="7DHVQwRRaiDfeZ2gTZEvpBcn7CoS9HfO"></script>
     </div>
   )
 }
