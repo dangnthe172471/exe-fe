@@ -18,7 +18,7 @@ export default function RootLayout({
       </head>
       <body suppressHydrationWarning={true}>
         {children}
-        <script src="https://subbot.io.vn/widget.js" api-key="${process.env.AI_API_KEY}"></script>
+        <script src="https://subbot.io.vn/widget.js" api-key={`${process.env.AI_API_KEY}`}></script>
       </body>
     </html>
   )
