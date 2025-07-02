@@ -64,6 +64,10 @@ export default function AdminDashboardPage() {
     const [isBookingDetailModalOpen, setIsBookingDetailModalOpen] = useState(false)
     const [isLoadingBookingDetail, setIsLoadingBookingDetail] = useState(false)
 
+    // State cho tổng số đơn hàng và tổng số trang
+    const [totalBookings, setTotalBookings] = useState(0)
+    const [totalPages, setTotalPages] = useState(1)
+
     useEffect(() => {
         const fetchDashboardData = async () => {
             try {
@@ -116,6 +120,8 @@ export default function AdminDashboardPage() {
         try {
             const result = await adminApi.getAllBookings(token, currentPage, pageSize, searchTerm, statusFilter === 'all' ? undefined : statusFilter)
             setBookings(result.bookings)
+            setTotalBookings(result.totalCount)
+            setTotalPages(result.totalPages)
         } catch (err) {
             console.error('Error fetching bookings:', err)
         }
@@ -475,6 +481,30 @@ export default function AdminDashboardPage() {
                                             )}
                                         </TableBody>
                                     </Table>
+                                    {/* PHÂN TRANG */}
+                                    {bookings && bookings.length > 0 && (
+                                        <div className="flex justify-end items-center mt-4 gap-2">
+                                            <Button
+                                                variant="outline"
+                                                size="sm"
+                                                onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                                                disabled={currentPage === 1}
+                                            >
+                                                Trước
+                                            </Button>
+                                            <span className="mx-2 text-sm">
+                                                Trang {currentPage} / {totalPages}
+                                            </span>
+                                            <Button
+                                                variant="outline"
+                                                size="sm"
+                                                onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+                                                disabled={currentPage === totalPages || totalPages === 0}
+                                            >
+                                                Sau
+                                            </Button>
+                                        </div>
+                                    )}
                                 </CardContent>
                             </Card>
                         </TabsContent>
