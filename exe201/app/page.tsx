@@ -289,7 +289,7 @@ export default function HomePage() {
           </div>
 
           <div className="flex justify-center">
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl">
               {displayServices.map((service, index) => (
                 <Card key={service.id} className="hover:shadow-xl transition-all duration-300 border-0 overflow-hidden group w-full max-w-sm">
                   <div className={`h-2 bg-gradient-to-r ${serviceGradients[index % serviceGradients.length]}`}></div>
