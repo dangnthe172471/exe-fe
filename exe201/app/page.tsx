@@ -288,25 +288,27 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {displayServices.map((service, index) => (
-              <Card key={service.id} className="hover:shadow-xl transition-all duration-300 border-0 overflow-hidden group">
-                <div className={`h-2 bg-gradient-to-r ${serviceGradients[index % serviceGradients.length]}`}></div>
-                <CardContent className="p-8">
-                  <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                    {serviceIcons[index % serviceIcons.length]}
-                  </div>
-                  <h3 className="text-xl font-semibold mb-3">{service.name}</h3>
-                  <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
-                  <div className="space-y-3">
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm text-gray-500">Giá từ:</span>
-                      <span className="font-semibold text-blue-600">{formatPrice(service.basePrice)}</span>
+          <div className="flex justify-center">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl">
+              {displayServices.map((service, index) => (
+                <Card key={service.id} className="hover:shadow-xl transition-all duration-300 border-0 overflow-hidden group w-full max-w-sm">
+                  <div className={`h-2 bg-gradient-to-r ${serviceGradients[index % serviceGradients.length]}`}></div>
+                  <CardContent className="p-8">
+                    <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                      {serviceIcons[index % serviceIcons.length]}
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+                    <h3 className="text-xl font-semibold mb-3">{service.name}</h3>
+                    <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm text-gray-500">Giá từ:</span>
+                        <span className="font-semibold text-blue-600">{formatPrice(service.basePrice)}</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
         </div>
       </section>
