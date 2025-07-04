@@ -326,7 +326,7 @@ export default function AdminDashboardPage() {
                             <CardContent>
                                 <div className="text-2xl font-bold text-orange-600">{stats.totalBookings}</div>
                                 <p className="text-xs text-gray-600">
-                                    {stats.recentBookings} đơn hàng mới (7 ngày qua)
+                                    {stats.recentBookings} đơn hàng mới
                                 </p>
                             </CardContent>
                         </Card>
@@ -341,7 +341,7 @@ export default function AdminDashboardPage() {
                                     {stats.totalRevenue.toLocaleString('vi-VN')} VNĐ
                                 </div>
                                 <p className="text-xs text-gray-600">
-                                    {stats.recentRevenue.toLocaleString('vi-VN')} VNĐ (7 ngày qua)
+                                    {stats.recentRevenue.toLocaleString('vi-VN')} VNĐ
                                 </p>
                             </CardContent>
                         </Card>
@@ -525,7 +525,6 @@ export default function AdminDashboardPage() {
                                                 <TableHead>Email</TableHead>
                                                 <TableHead>Số điện thoại</TableHead>
                                                 <TableHead>Trạng thái</TableHead>
-                                                <TableHead>Ngày tạo</TableHead>
                                             </TableRow>
                                         </TableHeader>
                                         <TableBody>
@@ -541,7 +540,6 @@ export default function AdminDashboardPage() {
                                                                 customer.status === 'inactive' ? 'Không hoạt động' : customer.status}
                                                         </Badge>
                                                     </TableCell>
-                                                    <TableCell>{new Date(customer.createdAt).toLocaleDateString('vi-VN')}</TableCell>
                                                 </TableRow>
                                             )) : (
                                                 <TableRow>
