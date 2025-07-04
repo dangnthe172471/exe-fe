@@ -32,6 +32,7 @@ import {
 } from "@/components/ui/dialog"
 import Header from "@/components/header"
 import Link from "next/link"
+import { formatPhoneNumber } from "@/lib/utils"
 
 export default function AdminDashboardPage() {
     const router = useRouter()
@@ -533,7 +534,7 @@ export default function AdminDashboardPage() {
                                                     <TableCell>#{customer.id}</TableCell>
                                                     <TableCell>{customer.name}</TableCell>
                                                     <TableCell>{customer.email}</TableCell>
-                                                    <TableCell>{customer.phone}</TableCell>
+                                                    <TableCell>{formatPhoneNumber(customer.phone)}</TableCell>
                                                     <TableCell>
                                                         <Badge variant={customer.status === 'active' ? 'default' : 'secondary'}>
                                                             {customer.status === 'active' ? 'Hoạt động' :
@@ -580,7 +581,7 @@ export default function AdminDashboardPage() {
                                                     <TableCell>#{cleaner.id}</TableCell>
                                                     <TableCell>{cleaner.name}</TableCell>
                                                     <TableCell>{cleaner.email}</TableCell>
-                                                    <TableCell>{cleaner.phone}</TableCell>
+                                                    <TableCell>{formatPhoneNumber(cleaner.phone)}</TableCell>
                                                     <TableCell>
                                                         <Badge variant={cleaner.status === 'active' ? 'default' : 'secondary'}>
                                                             {cleaner.status === 'active' ? 'Hoạt động' :
@@ -705,7 +706,7 @@ export default function AdminDashboardPage() {
                                                 <h4 className="font-semibold text-sm text-gray-600">Thông tin khách hàng</h4>
                                                 <p className="text-sm">Tên: {selectedBooking.userName}</p>
                                                 <p className="text-sm">Liên hệ: {selectedBooking.contactName}</p>
-                                                <p className="text-sm">SĐT: {selectedBooking.contactPhone}</p>
+                                                <p className="text-sm">SĐT: {formatPhoneNumber(selectedBooking.contactPhone)}</p>
                                             </div>
                                             <div>
                                                 <h4 className="font-semibold text-sm text-gray-600">Thông tin dịch vụ</h4>
