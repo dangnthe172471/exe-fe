@@ -15,6 +15,18 @@ export default function RootLayout({
     <html lang="vi">
       <head>
         <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="515*485" />
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z8KMS6S66K"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-Z8KMS6S66K');
+            `,
+          }}
+        />
       </head>
       <body suppressHydrationWarning={true}>
         {children}
